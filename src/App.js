@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import ReactDOM from 'react-dom';
+import React from 'react'
+import './index.css';
 import './App.css';
+import WeatherData from './components/WeatherData';
+import Form from './components/Form';
+import {useState, useEffect } from "react"
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+  
+  const [weather, setWeather] = React.useState(null)
+
+  const getWeather = async (searchTerm) => {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=4915e88a7fa96de16b8653af0f567d60&units=imperial`)
+    const data = await response.json()
+    setWeather(data);
+    };
+    
+    useEffect(() => {
+      getWeather("New York")
+    }, [])
+
+
+    
+  return ( 
+  
+  <div className = "App" >
+  <main>
+  <Form getWeather= {getWeather} />
+    <WeatherData weather={weather}  />
+  </main>
+  </div>
+  );
+};
+
+export default App
+
