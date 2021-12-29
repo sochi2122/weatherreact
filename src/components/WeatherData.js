@@ -2,31 +2,87 @@
 const WeatherData = (props) => {
 
   const loaded = () => {
+
+    
+    
     return (
 
 <>
-<main>
+<div id="root"></div>
+
+
+<header className="header">
+
+<br></br>
+
+
+
+<br></br>
+
+</header>
+
+
+<main className="section">
+
+
+
+      <div className="weather">
+      <h1> City: {props.weather.city.name} </h1>
+
+
+            <p><span>Date and Time: {props.weather.list[0].dt_txt}  </span></p>
+            <p><span>Temperature: {props.weather.list[0].main.temp}  </span></p>
+            <p><span>Description: {props.weather.list[0].weather[0].description}  </span></p>
+           <img src ={`http://openweathermap.org/img/w/${props.weather.list[0].weather[0].icon}.png`} alt="icon" />
+
+</div>
+           <div className="weather">
+           <h1> City: {props.weather.city.name} </h1>
+
+
+           <p><span>Date and Time: {props.weather.list[6].dt_txt}  </span></p>
+          <p><span>Temperature: {props.weather.list[6].main.temp}  </span></p>
+          <p><span>Description: {props.weather.list[6].weather[0].description}  </span></p>
+          <img src ={`http://openweathermap.org/img/w/${props.weather.list[6].weather[0].icon}.png`} alt="icon" />
+           
+</div>
 
 <div className="weather">
-<img src="http://res.cloudinary.com/jkeohan/image/upload/v1535732381/day.svg" alt=""></img>
-
-      <h1><span> City: {props.weather.name} </span> </h1>
-            <p><span>Temperature: {props.weather.main.temp}  </span></p>
-            <p><span>Description: {props.weather.weather[0].description}  </span></p>
-            <p><span>Description: {props.weather.weather[0].description}  </span></p>
+<h1> City: {props.weather.city.name} </h1>
 
 
+          <p><span>Date and Time: {props.weather.list[12].dt_txt}  </span></p>
+          <p><span>Temperature: {props.weather.list[12].main.temp}  </span></p>
+          <p><span>Description: {props.weather.list[12].weather[0].description}  </span></p>
+          <img src ={`http://openweathermap.org/img/w/${props.weather.list[12].weather[0].icon}.png`} alt="icon" />
+</div>
+
+<div className="weather">
+<h1> City: {props.weather.city.name} </h1>
+
+
+          <p><span>Date and Time: {props.weather.list[18].dt_txt}  </span></p>
+          <p><span>Temperature: {props.weather.list[18].main.temp}  </span></p>
+          <p><span>Description: {props.weather.list[18].weather[0].description}  </span></p>
+          <img src ={`http://openweathermap.org/img/w/${props.weather.list[18].weather[0].icon}.png`} alt="icon" />
+
+</div>
+
+
+<div className="weather">
+<h1> City: {props.weather.city.name} </h1>
+
+
+          <p><span>Date and Time: {props.weather.list[24].dt_txt}  </span></p>
+          <p><span>Temperature: {props.weather.list[24].main.temp}  </span></p>
+          <p><span>Description: {props.weather.list[24].weather[0].description}  </span></p>
+          <img src ={`http://openweathermap.org/img/w/${props.weather.list[24].weather[0].icon}.png`} alt="icon" />
+
+</div>
 
 
 
-            <p><span>Icon: {props.weather.weather[0].icon}  </span></p>
 
-           <img src= "http://openweathermap.org/img/wn/{props.weather.weather[0].icon}@2x.png"></img>
-
-            <a href=""> <img src="http://openweathermap.org/img/wn/10d@2x.png" className="Icon"></img></a>
-
-
-      </div>
       </main>
       </>
     );

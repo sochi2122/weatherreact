@@ -6,32 +6,56 @@ import WeatherData from './components/WeatherData';
 import Form from './components/Form';
 import {useState, useEffect } from "react"
 
+// const API_KEY= "c16eb7fb6b774aedbc623c11ae3e5c33	"
+// const BASE_URL = "   "
 
 function App() {
-
   
-  const [weather, setWeather] = React.useState(null)
+
+  // const image = `
+  // const iconapi = {props.weather.list.weather.icon};
+  const [weather, setWeather] = useState(null)
 
   const getWeather = async (searchTerm) => {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=4915e88a7fa96de16b8653af0f567d60&units=imperial`)
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchTerm}&units=imperial&appid=92d153842dbc08a4c1b69168e7caeed5&units=imperial`)
     const data = await response.json()
+
     setWeather(data);
     };
+
+
+
+
+
+
+
     
+
     useEffect(() => {
       getWeather("New York")
-    }, [])
+    },
+    [])
 
 
     
   return ( 
   
   <div className = "App" >
-  <main>
+
+<h1>My Weather App Using React</h1> 
+
+<br></br>
+
+
   <Form getWeather= {getWeather} />
-    <WeatherData weather={weather}  />
-  </main>
+
+
+  <br></br>
+    <WeatherData weather={weather} />
+
+<br></br>
+
+
   </div>
   );
 };

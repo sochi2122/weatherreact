@@ -18,18 +18,26 @@ code {
     monospace;
 }
 
-section {
+main {
   display:flex;
+  
 }
 
-section .weather {
+main .weather {
  border: 1px solid #ccc;
- flex: 1;
  padding:10px;
  text-align:center;
+ flex: 1;
+
 }
 
 .weather span {
   font-weight: bold;
 }
 
+header, h1, .header {
+
+  text-align:center;
+  align-self: center;
+
+}
